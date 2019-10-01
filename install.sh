@@ -2,7 +2,7 @@
 
 set -eu
 
-echo 'シンボリックリンク作成'
+echo 'create symlink'
 for file in .??*; do
     [ "$file" = '.git' ] && continue
     [ "$file" = '.gitignore' ] && continue
@@ -11,22 +11,22 @@ for file in .??*; do
 done
 
 echo
-echo 'Homebrewインストール'
+echo 'install homebrew'
 
 if ! which brew > /dev/null 2>&1; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-    echo 'インストール済みでした'
+    echo 'already installed'
 fi
 
 echo
-echo 'Brewfileのソフトインストール'
+echo 'install apps in brewfile'
 
 brew bundle && :
 
 if [ "$SHELL" != '/usr/local/bin/zsh' ]; then
     echo
-    echo 'ログインシェルをzshに変更'
+    echo 'change shell to zsh'
     echo /usr/local/bin/zsh | sudo tee -a /etc/shells
     chsh -s /usr/local/bin/zsh
 fi
