@@ -61,7 +61,7 @@ $ brew tap
 
  # cask
 
- `brew cask <command>`とするだけ
+ `brew cask <command>`
 
  ```
 $ brew cask install <name>
