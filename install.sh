@@ -24,6 +24,10 @@ echo 'install apps in brewfile'
 
 brew bundle && :
 
+echo
+echo 'create symlink'
+ln -snvf /usr/local/bin/g++-9 /usr/local/bin/g++
+
 if [ "$SHELL" != '/usr/local/bin/zsh' ]; then
     echo
     echo 'change shell to zsh'
