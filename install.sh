@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+# set -eu
 
 echo 'create symlink'
 for file in .??*; do
@@ -27,6 +27,10 @@ brew bundle && :
 echo
 echo 'create symlink'
 ln -snvf /usr/local/bin/g++-9 /usr/local/bin/g++
+
+echo
+echo 'copy stdc++.h'
+mkdir -p /usr/local/include/bits && cp -fv /usr/local/Cellar/gcc/9.2.0_3/include/c++/9.2.0/x86_64-apple-darwin19/bits/stdc++.h $_
 
 if [ "$SHELL" != '/usr/local/bin/zsh' ]; then
     echo
